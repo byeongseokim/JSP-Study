@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.apache.commons.fileupload.FileItem;
+import org.apache.commons.fileupload.FileUploadException;
 import org.apache.commons.fileupload.disk.DiskFileItemFactory;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
 
@@ -56,8 +57,8 @@ public class FileUpload extends HttpServlet {
 					if (fileItem.isFormField()) {
 						System.out.println(fileItem.getFieldName() + "=" + fileItem.getString(encoding));
 					} else {
-						System.out.println("매개변수 이름:" + fileItem.getFieldName());
-						System.out.println("파일이름:" + fileItem.getName());
+						System.out.println("파라미터명:" + fileItem.getFieldName());
+						System.out.println("파일명:" + fileItem.getName());
 						System.out.println("파일크기:" + fileItem.getSize() + "bytes");
 	
 						if (fileItem.getSize() > 0) {
